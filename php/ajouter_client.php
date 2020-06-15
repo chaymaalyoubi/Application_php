@@ -1,0 +1,24 @@
+<?php 
+   include("php/connexion_file.php");
+   $client=$_POST['client'];
+   
+   
+   
+   $re22=$bdd->query("select count(*) as cc from clients where nomClient='".$client."'");
+   $ree2=$re22->fetch();
+   $cc=$ree2['cc'];
+   
+   
+   if ($cc==0)
+   {
+   
+   $re=$bdd->query("insert into clients(nomClient) value('".$client."')");
+   
+   echo "aa";
+   }
+   
+   
+   else 
+   echo "bb";
+   
+   ?>

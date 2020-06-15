@@ -1,0 +1,31 @@
+<?php 
+
+include("php/connexion_file.php");
+$sujet=$_POST['sujet'];
+
+
+
+
+
+$re22=$bdd->query("select count(*) as cc from sujets where nomSujet='".$sujet."'");
+$ree2=$re22->fetch();
+$cc=$ree2['cc'];
+
+
+
+if ($cc==0)
+{
+
+$re=$bdd->query("insert into sujets(nomSujet) value('".$sujet."')");
+
+echo "aa";
+
+}
+
+else echo "bb";
+
+
+
+
+
+?>

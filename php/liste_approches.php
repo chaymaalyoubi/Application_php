@@ -1,0 +1,216 @@
+<?php 
+   include("php/connexion_file.php");
+   
+   
+   $projet=$_GET['id'];
+   $num=$_GET['num'];
+   
+   if($num==1)
+   {
+   
+   ?>
+<div style="padding: 0px 5px 0px 5px;">
+   <div  style="display:block ; background:white; border : 1px solid #dddddd;  border-radius:5px;  padding: unset;"id="<?php echo 'divo'?>">
+      <table style="width:100%">
+         <tr>
+            <td style="width:70%">
+               <div class="ccc
+                  " style=" font-weight:100; ;padding: 15px 15px 15px;"> Liste des approches du projet <i class="fas fa-check-circle" style="color: green; font-size:1rem"></i>  </div>
+            </td>
+            <td style="margin-right:10px;font-size:18px;cursor:pointer;color:blue;float:right">
+               <span onclick="filtrer(2)" id="spanjour"><i class="fas fa-sort" style="color:orange"></i> Jour</span>
+            </td>
+         </tr>
+      </table>
+      <table cellpadding="0" cellspacing="0" style="width:100%; margin-bottom:30px">
+         <tr style="background: white; color:gray">
+            <th class="yy">
+               Approche
+            </th>
+            <th class="yy"> 
+               Date
+            </th>
+            <th class="yy"> 
+               Heure
+            </th>
+            <th class="yy"> 
+               Ville
+            </th>
+            <th class="yy"> 
+               Csp
+            </th>
+            <th class="yy"> 
+               Max
+            </th>
+            <th class="yy"> 
+               Min
+            </th>
+            <th class="yy"> 
+               Incentive
+            </th>
+            <th class="yy"> 
+               Recrutement
+            </th>
+         </tr>
+         <?php 
+            $oo=0;
+            
+            $req=$bdd->query("select * from approche where idprojet=".$projet." order by date desc");
+            while ($req2=$req->fetch()){
+            
+            ?>
+         <tr class="kk <?php if ($oo%2==0) echo 'jjj'?>" >
+            <td class="kk">
+               <?php echo $req2["type"] ?>
+            </td>
+            <td class="kk" style="white-space:nowrap;" >
+               <?php echo $req2['date'] ?>
+            </td>
+            <td class="kk" >
+               <?php echo date('h:i', strtotime($req2['heure']));
+                  ?>
+            </td>
+            <td class="kk">
+               <?php echo $req2['ville'] ?>
+            </td>
+            <td class="kk" >
+               <?php echo $req2['csp'] ?>
+            </td>
+            <td class="kk">
+               <?php echo $req2['nbrmin'] ?>
+            </td>
+            <td class="kk">
+               <?php echo $req2['nbrmax'] ?>
+            </td>
+            <td class="kk">
+               <?php echo $req2['incentive'] ?>
+            </td>
+            <td class="kk">
+               <?php echo $req2['recrutement'] ?>
+            </td>
+         </tr>
+         <?php
+            $oo++;
+            
+            
+            
+            }
+            
+            
+            
+            
+            
+            ?>
+      </table>
+   </div>
+</div>
+<?php
+   }
+   
+   else
+   {
+       
+    ?>
+<div style="padding: 0px 5px 0px 5px;">
+   <div  style="display:block ; background:white; border : 1px solid #dddddd;  border-radius:5px;  padding: unset;"id="<?php echo 'divo'?>">
+      <table style="width:100%">
+         <tr>
+            <td style="width:70%">
+               <div class="ccc
+                  " style=" font-weight:100; ;padding: 15px 15px 15px;"> Liste des approches du projet par jour <i class="fas fa-check-circle" style="color: green; font-size:1rem"></i>  </div>
+            </td>
+            <td style="margin-right:10px;font-size:18px;cursor:pointer;color:blue;float:right">
+               <span onclick="change(1)" id="spanjour"><i class="fas fa-sort" style="color:orange"></i> Approche</span>
+            </td>
+         </tr>
+      </table>
+      <table cellpadding="0" cellspacing="0" style="width:100%; margin-bottom:30px">
+         <tr style="background: white; color:gray">
+            <th class="yy"> 
+               Date
+            </th>
+            <th class="yy">
+               Approche
+            </th>
+            <th class="yy"> 
+               Incentive
+            </th>
+            <th class="yy"> 
+               Recrutement
+            </th>
+            <th class="yy"> 
+               Logistique
+            </th>
+            <th class="yy"> 
+               Deplacement Recruteuse
+            </th>
+            <th class="yy"> 
+               Deplacement analyste
+            </th>
+            <th class="yy"> 
+               Total
+            </th>
+         </tr>
+         <?php 
+            $oo=0;
+            
+            $req=$bdd->query("SELECT count(*) as cc, jour, dep_an da ,dep_rec dr, sum(incentive) inc, sum(recrutement) re FROM `dep_app`,approche where idprojet=".$projet." and idprojet=projet and date=jour GROUP BY jour order by jour desc
+            ");
+            while ($req2=$req->fetch()){
+            $to=0;
+            ?>
+         <tr class="kk <?php if ($oo%2==0) echo 'jjj'?>" >
+            <td class="kk">
+               <?php echo $req2["jour"] ?>
+            </td>
+            <td class="kk" style="white-space:nowrap;" >
+               <?php echo $req2['cc'] ?>
+            </td>
+            <td class="kk" >
+               <?php echo $req2['inc'];
+                  $to=$to+$req2['inc'];
+                  ?>
+            </td>
+            <td class="kk">
+               <?php echo $req2['re'];
+                  $to=$to+$req2['re'];
+                  ?>
+            </td>
+            <td class="kk" >
+               <?php echo 100*$req2['cc'] ;
+                  $to=$to+100*$req2['cc'];
+                  ?>
+            </td>
+            <td class="kk">
+               <?php echo $req2['da'];
+                  $to=$to+$req2['da'];
+                  ?>
+            </td>
+            <td class="kk">
+               <?php echo $req2['dr'];
+                  $to=$to+$req2['dr'];?>
+            </td>
+            <td class="kk">
+               <?php echo $to;
+                  ?>
+            </td>
+         </tr>
+         <?php
+            $oo++;
+            
+            
+            
+            }
+            
+            
+            
+            
+            
+            ?>
+      </table>
+   </div>
+</div>
+<?php   
+   }
+   
+   ?>
