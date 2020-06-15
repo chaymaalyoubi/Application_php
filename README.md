@@ -17,9 +17,8 @@ Estimation du budget par projet d'une manière automatique.
 
 Traçabilité des depenses par jour/projet/focus.
 
-Gestion des ressources humaines (Chef projet, Recruteuses , Recrutés, Supports).
+Gestion des ressources humaines (Chef projet, Recruteuses , Recrutés, Supports)...
 
-...
 
 ### Technologies Utilisées:
 Front-end : Php (Native), Mysql, Ajax, Jquery
@@ -29,5 +28,7 @@ Back-end : Html, Css, Bootsrap
 
 ### Hint
 La partie publiée du code sur ce repertoire ne concerne qu'un seul vollet de l'application --Création et initialisation des projets--
+
 Le dossier "Application_php/php" contient les fonctions php utilisées
+
 Le fichier "Application_php/javascript/functions.js" contient les fonctions Javascript utilisées 
