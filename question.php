@@ -44,17 +44,8 @@
          csp2["4"]=150;
          csp2["5"]=400;
          csp2["6"]=300;
-         
-         var arr=[];
-         
-  
+		 var arr=[];
          supprime=[];
-
-         
-         <?php 
-            $dt=date('Y-m-d');
-            ?>
-         
 
       </script>
       <script type="text/javascript" src="javascript/functions.js"></script>

@@ -10,6 +10,7 @@
    $cssp[6]="Commerçants";
    
    
+   
    $typo=[];
    $typo[1]="Focus Group";
    $typo[2]="Triad";
@@ -19,7 +20,9 @@
    $typo[6]="IHV";
    $typo[7]="IDI";
    
-  
+   
+   
+   
    $obj=$_POST['objet'];
    $sup=$_POST['sup'];
    

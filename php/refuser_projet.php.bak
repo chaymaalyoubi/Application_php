@@ -1,6 +1,10 @@
 <?php 
 
+
 include("php/connexion_file.php");
+
+
+
 $id=$_POST['id'];
 $com=$_POST['com'];
 

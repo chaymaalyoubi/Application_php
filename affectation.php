@@ -41,9 +41,7 @@
          var arr=[];
          
          supprime=[];
-         
-         
-         
+
          <?php 
             $dt=date('Y-m-d');
             ?>

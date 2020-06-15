@@ -30,22 +30,6 @@
       <script src="//ajax.googleapis.com/ajax/libs/jqueryui/1.10.3/jquery-ui.min.js"></script>
       <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
       <script>
-         i=1;
-         
-         var csp2=[];
-         csp2["1"]=350;
-         csp2["2"]=300;
-         csp2["3"]=200;
-         csp2["4"]=150;
-         csp2["5"]=400;
-         csp2["6"]=300;
-         
-         var arr=[];
-
-         <?php 
-            $dt=date('Y-m-d');
-            ?>
-
       </script>
       <script type="text/javascript" src="javascript/functions.js"></script>
       <!-- Bootstrap CSS CDN -->
