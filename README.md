@@ -26,8 +26,8 @@ Front-end : Php (Native), Mysql, Ajax, Jquery
 Back-end : Html, Css, Bootsrap
 
 
-### Hint
-La partie publiée du code sur ce repertoire ne concerne qu'un seul vollet de l'application --Création et initialisation des projets--
+### Hints
+La partie publiée du code sur ce repertoire ne concerne qu'un seul vollet de l'application -Création et initialisation des projets-
 
 Le dossier "Application_php/php" contient les fonctions php utilisées
 
